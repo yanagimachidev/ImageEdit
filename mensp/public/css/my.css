@@ -1,0 +1,12 @@
+label{
+    margin: 0px;
+}
+
+.ds-2{
+    width:100%;
+    margin:2px;
+}
+
+#msform input[type='color']{
+    height: 40px;
+}
