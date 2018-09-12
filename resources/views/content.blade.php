@@ -165,8 +165,8 @@
 
                 <div class="ds-2"></div>
 
-                <label class="control-label col-sm-2" for="number">代</label>
-                <input class="form-control col-sm-9"  type="text" name="number"
+                <!--label class="control-label col-sm-2" for="number">代</label-->
+                <input class="form-control col-sm-9"  type="hidden" name="number"
                     @if(isset($number))
                         value="{{$number}}"
                     @endif
@@ -174,8 +174,8 @@
 
                 <div class="ds-2"></div>
 
-                <label class="control-label col-sm-2" for="title">役職</label>
-                <input class="form-control col-sm-9"  type="text" name="title"
+                <!--label class="control-label col-sm-2" for="title">役職</label-->
+                <input class="form-control col-sm-9"  type="hidden" name="title"
                     @if(isset($title))
                         value="{{$title}}"
                     @endif
@@ -183,8 +183,8 @@
 
                 <div class="ds-2"></div>
 
-                <label class="control-label col-sm-2" for="graduate" require>童貞卒業</label>
-                <input class="form-control col-sm-9"  type="text" name="graduate"
+                <!--label class="control-label col-sm-2" for="graduate" require>童貞卒業</label-->
+                <input class="form-control col-sm-9"  type="hidden" name="graduate"
                     @if(isset($graduate))
                         value="{{$graduate}}"
                     @endif
