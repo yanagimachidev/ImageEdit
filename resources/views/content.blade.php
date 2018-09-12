@@ -172,7 +172,7 @@
                     @endif
                 >
 
-                <div class="ds-2"></div>
+                <!--div class="ds-2"></div-->
 
                 <!--label class="control-label col-sm-2" for="title">役職</label-->
                 <input class="form-control col-sm-9"  type="hidden" name="title"
@@ -181,7 +181,7 @@
                     @endif
                 >
 
-                <div class="ds-2"></div>
+                <!--div class="ds-2"></div-->
 
                 <!--label class="control-label col-sm-2" for="graduate" require>童貞卒業</label-->
                 <input class="form-control col-sm-9"  type="hidden" name="graduate"
@@ -190,7 +190,7 @@
                     @endif
                 >
 
-                <div class="ds-2"></div>
+                <!--div class="ds-2"></div-->
 
                 <label class="control-label col-sm-2" for="namev" require>名前表示</label>
                 <select class="form-control col-sm-9" id="namev" name="namev">
