@@ -13,7 +13,7 @@
             @isset($emess)
                 <p class="mx-auto text-center text-danger">{{$emess}}</p>
             @endisset
-            <form class="form-inline" id="msform" name="msform" method="POST" action="/mensp/public/" enctype="multipart/form-data">
+            <form class="form-inline" id="msform" name="msform" method="POST" action="/ImageEdit/public/" enctype="multipart/form-data">
                 @csrf
                 <label class="control-label col-sm-2" for="angle" require>画像の向き</label>
                 <select class="form-control col-sm-9" id="angle" name="angle">
