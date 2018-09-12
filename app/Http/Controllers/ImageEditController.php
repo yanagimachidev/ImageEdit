@@ -56,7 +56,7 @@ class ImageEditController extends Controller
 
         // アップロードされたファイルを指定のフォルダに移動
         move_uploaded_file($_FILES['image']['tmp_name'], dirname(__FILE__) . '/../../../storage/images/' . $file_name);
-        $image_path = $domain . '/mensp/storage/images/' . $file_name;
+        $image_path = $domain . '/ImageEdit/storage/images/' . $file_name;
 
         // 加工前の画像の情報を取得
         list($w, $h, $type) = getimagesize($image_path);
@@ -287,7 +287,7 @@ class ImageEditController extends Controller
 
         // 画像を保存する
         imagepng($new_image, dirname(__FILE__) . '/../../../storage/new_images/' . $file_name);
-        $new_image_path = $domain . '/mensp/storage/new_images/' . $file_name;
+        $new_image_path = $domain . '/ImageEdit/storage/new_images/' . $file_name;
 
         //最後にメモリを開放する
         imagedestroy($new_image);
