@@ -156,14 +156,14 @@
 
                 <div class="ds-2"></div>
 
-                <label class="control-label col-sm-2" for="name">名前</label>
-                <input class="form-control col-sm-9"  type="text" name="name"
+                <!--label class="control-label col-sm-2" for="name">名前</label-->
+                <input class="form-control col-sm-9"  type="hidden" name="name"
                     @if(isset($name))
                         value="{{$name}}"
                     @endif
                 >
 
-                <div class="ds-2"></div>
+                <!--div class="ds-2"></div-->
 
                 <!--label class="control-label col-sm-2" for="number">代</label-->
                 <input class="form-control col-sm-9"  type="hidden" name="number"
@@ -192,8 +192,15 @@
 
                 <!--div class="ds-2"></div-->
 
-                <label class="control-label col-sm-2" for="namev" require>名前表示</label>
-                <select class="form-control col-sm-9" id="namev" name="namev">
+                <!--label class="control-label col-sm-2" for="namev" require>名前表示</label-->
+                <input class="form-control col-sm-9"  type="hidden" name="namev"
+                    @if(isset($graduate))
+                        value="{{$namev}}"
+                    @else
+                        value="1"
+                    @endif
+                >
+                <!--select class="form-control col-sm-9" id="namev" name="namev">
                     <option value="1" 
                         @if(isset($namev))
                             @if($namev == 1)
@@ -210,9 +217,9 @@
                             @endif
                         @endif
                     >バージョン２</option>
-                </select>
+                </select-->
 
-                <div class="ds-2"></div>
+                <!--div class="ds-2"></div-->
 
                 <label class="control-label col-sm-2" for="image">画像ファイル</label>
                 <input class="form-control col-sm-9" type="file" name="image" require

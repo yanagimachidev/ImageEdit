@@ -33,9 +33,21 @@ class ImageEditController extends Controller
             'message' => $request->message
         ];
 
+        // 画像のアップロード確認
         if(!is_uploaded_file($_FILES['image']['tmp_name'])){
             $param += [
                 'emess' => '画像を選択してください。',
+            ];
+            return view('content', $param);
+        }
+
+        // 画像の拡張子確認
+        if(!(mb_substr($_FILES['image']['name'], -3) == 'jpg' ||
+             mb_substr($_FILES['image']['name'], -4) == 'jpeg' ||
+             mb_substr($_FILES['image']['name'], -3) == 'png'))
+        {
+            $param += [
+                'emess' => 'JPEGもしくはPNG形式の画像を使用してください。',
             ];
             return view('content', $param);
         }
@@ -86,35 +98,35 @@ class ImageEditController extends Controller
             if($request->position == 1){
                 $position_x = 0;
                 $position_y = 0;
-                $e_position_x = $new_w / 2;
-                $e_position_y = $new_h;
+                $new_image_w  = $new_w / 2;
+                $new_image_y = $new_h;
             }else{
                 $position_x = $new_w / 2 + 1;
                 $position_y = 0;
-                $e_position_x = $new_w / 2;
-                $e_position_y = $new_h;
+                $new_image_w  = $new_w / 2;
+                $new_image_y = $new_h;
             }
         }else{
             $position_x = 0;
             $position_y = 0;
-            $e_position_x = $new_w ;
-            $e_position_y = $new_h;
+            $new_image_w  = $new_w ;
+            $new_image_y = $new_h;
         }
 
         // 位置を指定して画像をキャンバスに設置
-        imagecopyresampled($new_image, $image, $position_x, $position_y, 0, 0, $e_position_x, $e_position_y, $w, $h);
+        imagecopyresampled($new_image, $image, $position_x, $position_y, 0, 0, $new_image_w , $new_image_y, $w, $h);
 
         // 塗りつぶし箇所を指定
         if($request->position == 1){
-            $black_x = $new_w / 2 + 1;
-            $black_y = 0;
-            $e_black_x = $new_w;
-            $e_black_y = $new_h;
+            $color_x = $new_w / 2 + 1;
+            $color_y = 0;
+            $color_w = $new_w;
+            $color_h = $new_h;
         }else{
-            $black_x = 0;
-            $black_y = 0;
-            $e_black_x = $new_w / 2;
-            $e_black_y = $new_h;
+            $color_x  = 0;
+            $color_y  = 0;
+            $color_w = $new_w / 2;
+            $color_h = $new_h;
         }
 
         // 塗りつぶしの色を指定
@@ -124,7 +136,7 @@ class ImageEditController extends Controller
         $bgcolor = imagecolorallocatealpha($new_image, $bgcolor_r, $bgcolor_g, $bgcolor_b, $request->permeability);
 
         // 塗りつぶしを実施
-        imagefilledrectangle($new_image, $black_x, $black_y, $e_black_x, $e_black_y, $bgcolor);
+        imagefilledrectangle($new_image, $color_x, $color_y, $color_w, $color_h, $bgcolor);
 
         // パラメーター
         $c_p = 60;
